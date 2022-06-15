@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.lang.reflect.Array;
 
 public class ArrayDeque < T > {
@@ -26,7 +28,7 @@ public class ArrayDeque < T > {
         inNoramlOrder(newItems);
         items = newItems;
         nextFirst = items.length - 1;
-        nextLast = size - 1;
+        nextLast = size;
     }
 
     private void decreSize() {
@@ -34,7 +36,7 @@ public class ArrayDeque < T > {
         inNoramlOrder(newItems);
         items = newItems;
         nextFirst = items.length - 1;
-        nextLast = size - 1;
+        nextLast = size;
     }
 
     private void inNoramlOrder(T[] newItems) {
@@ -143,4 +145,13 @@ public class ArrayDeque < T > {
     public T get(int index) {
         return items[(nextFirst+1+index+ items.length) % items.length];
     }
+
+//    @Test
+//    public void getTest(){
+//        ArrayDeque<Integer> aa=new ArrayDeque<>();
+//        for(int i=0;i<32;i++){
+//            aa.addLast(i);
+//        }
+//        aa.get(7);
+//    }
 }
