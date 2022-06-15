@@ -30,7 +30,7 @@ public class ArrayDeque < T > {
     }
 
     private void decreSize() {
-        T[] newItems = (T[]) new Object[size/2];
+        T[] newItems = (T[]) new Object[items.length/2];
         inNoramlOrder(newItems);
         items = newItems;
         nextFirst = items.length - 1;
