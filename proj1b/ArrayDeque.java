@@ -1,8 +1,4 @@
-import org.junit.Test;
-
-import java.lang.reflect.Array;
-
-public class ArrayDeque < T > {
+public class ArrayDeque< T > implements  Deque< T >{
     private int size;
     private int nextFirst;
     private int nextLast;
@@ -56,6 +52,7 @@ public class ArrayDeque < T > {
         }
     }
 
+    @Override
     public void addFirst(T item) {
         if(size == items.length) {
             increSize();
@@ -65,6 +62,7 @@ public class ArrayDeque < T > {
         nextFirst = (nextFirst - 1 + items.length) % items.length;
     }
 
+    @Override
     public void addLast(T item) {
         if(size == items.length) {
             increSize();
@@ -74,6 +72,7 @@ public class ArrayDeque < T > {
         nextLast = (nextLast + 1 + items.length) % items.length;
     }
 
+    @Override
     public boolean isEmpty() {
         if (size == 0) {
             return true;
@@ -81,10 +80,12 @@ public class ArrayDeque < T > {
         return false;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public void printDeque() {
         if (size == items.length) {
             if (nextFirst == size -1){
@@ -115,6 +116,7 @@ public class ArrayDeque < T > {
 
     }
 
+    @Override
     public T removeFirst() {
         if(size == 0){
             return null;
@@ -129,6 +131,7 @@ public class ArrayDeque < T > {
         return oldItem;
     }
 
+    @Override
     public T removeLast() {
         if(size == 0){
             return null;
@@ -143,6 +146,7 @@ public class ArrayDeque < T > {
         return oldItem;
     }
 
+    @Override
     public T get(int index) {
         return items[(nextFirst+1+index+ items.length) % items.length];
     }
