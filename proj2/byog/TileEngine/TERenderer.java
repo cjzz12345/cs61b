@@ -98,4 +98,20 @@ public class TERenderer {
         }
         StdDraw.show();
     }
+
+////    public void renderHFrame(TETile[][] world) {
+////        int numXTiles = world.length;
+////        StdDraw.clear(new Color(0, 0, 0));
+////        for (int x = 0; x < numXTiles; x += 1) {
+////            int numYTiles = world[x].length;
+////            for (int y = 0; y < numYTiles; y += 1) {
+////                if (world[x][y] == null) {
+////                    throw new IllegalArgumentException("Tile at position x=" + x + ", y=" + y
+////                            + " is null.");
+////                }
+////                world[x][y].draw(x + xOffset, y + yOffset);
+////            }
+////        }
+//        StdDraw.show();
+//    }
 }
