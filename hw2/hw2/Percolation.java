@@ -18,23 +18,25 @@ public class Percolation {
         return len * row + col;
     }
     public void open(int row,int col) {
-        open[row][col] = 1;
-        numOpen++;
-        if (row >= 1) {
-            if (isOpen(row - 1,col))
-                sites.union(inMatrix(row,col),inMatrix(row - 1,col));
-        }
-        if (row < len - 1) {
-            if (isOpen(row + 1,col))
-                sites.union(inMatrix(row,col),inMatrix(row + 1,col));
-        }
-        if (col >= 1) {
-            if (isOpen(row,col - 1))
-                sites.union(inMatrix(row,col),inMatrix(row,col - 1));
-        }
-        if (col < len - 1) {
-            if (isOpen(row,col + 1))
-                sites.union(inMatrix(row,col),inMatrix(row,col + 1));
+        if (open[row][col] == 0) {
+            open[row][col] = 1;
+            numOpen++;
+            if (row >= 1) {
+                if (isOpen(row - 1,col))
+                    sites.union(inMatrix(row,col),inMatrix(row - 1,col));
+            }
+            if (row < len - 1) {
+                if (isOpen(row + 1,col))
+                    sites.union(inMatrix(row,col),inMatrix(row + 1,col));
+            }
+            if (col >= 1) {
+                if (isOpen(row,col - 1))
+                    sites.union(inMatrix(row,col),inMatrix(row,col - 1));
+            }
+            if (col < len - 1) {
+                if (isOpen(row,col + 1))
+                    sites.union(inMatrix(row,col),inMatrix(row,col + 1));
+            }
         }
     }
 
