@@ -21,7 +21,7 @@ public class PercolationStats {
                 total = StdRandom.uniform(N * N);
                 row = total / N;
                 col = total % N;
-                if (sites.isOpen(row,col)) {
+                if (!sites.isOpen(row,col)) {
                     sites.open(row,col);
                 }
 
@@ -63,7 +63,7 @@ public class PercolationStats {
     }
 
      public static void main(String[] args) {
-        PercolationStats p = new PercolationStats(20,10,new PercolationFactory());
+        PercolationStats p = new PercolationStats(20,3,new PercolationFactory());
         System.out.println(p.mean()+"    "+p.confidenceHigh()+"       "+p.confidenceLow());
     }
 
