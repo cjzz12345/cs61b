@@ -8,7 +8,10 @@ public class Percolation {
     private int len;
     private int numOpen;
     public Percolation(int N) {
-        sites = new WeightedQuickUnionUF(N * N);
+        if (N <= 0) {
+            throw new IllegalArgumentException("N expected to be positive");
+        }
+        sites = new WeightedQuickUnionUF(N * N + 2);
         open = new int[N][N];
         len = N;
         numOpen = 0;
@@ -37,6 +40,9 @@ public class Percolation {
                 if (isOpen(row,col + 1))
                     sites.union(inMatrix(row,col),inMatrix(row,col + 1));
             }
+            if (row == 0) {
+                sites.union(inMatrix(row,col),len * len + 1);
+            }
         }
     }
 
@@ -45,11 +51,15 @@ public class Percolation {
     }
 
     public boolean isFull(int row,int col) {
+//        if (isOpen(row,col)) {
+//            for (int i = 0;i < len;i++) {
+//                if (isOpen(0,i) && sites.connected(inMatrix(row,col),inMatrix(0,i)))
+//                    return true;
+//            }
+//        }
         if (isOpen(row,col)) {
-            for (int i = 0;i < len;i++) {
-                if (isOpen(0,i) && sites.connected(inMatrix(row,col),inMatrix(0,i)))
-                    return true;
-            }
+            if (sites.connected(inMatrix(row,col),len * len + 1))
+                return true;
         }
         return false;
     }

@@ -2,6 +2,7 @@ package hw2;
 
 import edu.princeton.cs.introcs.StdRandom;
 import edu.princeton.cs.introcs.StdStats;
+import org.junit.Test;
 
 public class PercolationStats {
     private Percolation sites;
@@ -61,5 +62,9 @@ public class PercolationStats {
         return mean + (1.96 * std / Math.sqrt(num));
     }
 
+     public static void main(String[] args) {
+        PercolationStats p = new PercolationStats(20,10,new PercolationFactory());
+        System.out.println(p.mean()+"    "+p.confidenceHigh()+"       "+p.confidenceLow());
+    }
 
 }
