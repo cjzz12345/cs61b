@@ -41,6 +41,9 @@ public class Percolation {
                     sites.union(inMatrix(row,col),inMatrix(row,col + 1));
             }
             if (row == 0) {
+                sites.union(inMatrix(row,col),len * len );
+            }
+            if (row == len - 1) {
                 sites.union(inMatrix(row,col),len * len + 1);
             }
         }
@@ -58,7 +61,7 @@ public class Percolation {
 //            }
 //        }
         if (isOpen(row,col)) {
-            if (sites.connected(inMatrix(row,col),len * len + 1))
+            if (sites.connected(inMatrix(row,col),len * len))
                 return true;
         }
         return false;
@@ -69,10 +72,12 @@ public class Percolation {
     }
 
     public boolean  percolates() {
-        for (int i = 0;i < len;i++) {
-            if (isFull(len - 1,i))
-                return true;
-        }
+//        for (int i = 0;i < len;i++) {
+//            if (isFull(len - 1,i))
+//                return true;
+//        }
+        if (sites.connected(len * len + 1,len * len))
+            return true;
         return false;
     }
 
