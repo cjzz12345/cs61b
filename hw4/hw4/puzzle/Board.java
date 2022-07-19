@@ -94,6 +94,7 @@ public class Board implements WorldState{
 
     /** Returns the string representation of the board. 
       * Uncomment this method. */
+    @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
         int N = size();

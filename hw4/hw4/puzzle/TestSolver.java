@@ -3,6 +3,7 @@ import edu.princeton.cs.algs4.In;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -77,6 +78,7 @@ public class TestSolver {
                                   + wps.start + "->" + wps.goal;
 
             assertEquals(errorMessage, wps.numMoves, s.moves());
+
         }
     }
 
@@ -105,6 +107,12 @@ public class TestSolver {
             BoardPuzzleSolution bps = new BoardPuzzleSolution(puzzleName, b, numMoves);
             Solver s = new Solver(b);
             assertEquals("Wrong number of moves on " + puzzleName, bps.numMoves, s.moves());
+            System.out.println("yes");
+            Iterable<WorldState> it = s.solution();
+            Iterator<WorldState> ne = it.iterator();
+            while (ne.hasNext()) {
+                System.out.println(ne.next());
+            }
         }
     }
 
@@ -118,7 +126,7 @@ public class TestSolver {
             BoardPuzzleSolution bps = new BoardPuzzleSolution(puzzleName, b, numMoves);
             Solver s = new Solver(b);
             assertEquals("Wrong number of moves on " + puzzleName, bps.numMoves, s.moves());
-            System.out.println("yes");
+
         }
     }
 

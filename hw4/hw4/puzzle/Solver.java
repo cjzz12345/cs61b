@@ -1,13 +1,14 @@
 package hw4.puzzle;
 
 import edu.princeton.cs.algs4.MinPQ;
+import edu.princeton.cs.algs4.Stack;
 
 import java.util.*;
 
 public class Solver {
     MinPQ<serachNode> minPQ = new MinPQ<>();
     int smove;
-    List<WorldState> sl;
+    Stack<WorldState> sl;
     public Solver(WorldState initial) {
         serachNode init = new serachNode(initial,0,null);
         minPQ.insert(init);
@@ -24,13 +25,14 @@ public class Solver {
             }
             search = minPQ.delMin();
         }
-        sl = new ArrayList<>();
+        sl = new Stack<>();
         smove = search.move;
         while (search.pre != null) {
-            sl.add(search.cur);
+            sl.push(search.cur);
             search = search.pre;
         }
-        sl.add(search.cur);
+        sl.push(search.cur);
+
     }
 
     private class serachNode implements Comparable {
