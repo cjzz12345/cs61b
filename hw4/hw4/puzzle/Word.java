@@ -115,4 +115,5 @@ public class Word implements WorldState {
         result = 31 * result + (goal != null ? goal.hashCode() : 0);
         return result;
     }
+
 }
