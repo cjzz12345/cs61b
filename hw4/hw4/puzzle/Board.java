@@ -36,7 +36,15 @@ public class Board implements WorldState{
 
     @Override
     public boolean equals(Object y) {
+        if (this == y) {
+            return true;
+        }
+        if (y == null || getClass() != y.getClass()) {
+            return false;
+        }
         Board o = (Board) y;
+        if (this.tiles.length == o.size())
+            return false;
         for (int i = 0;i < this.tiles.length;i++)
             for (int j = 0;j < this.tiles.length;j++) {
                 if (this.tiles[i][j] != o.tileAt(i,j))

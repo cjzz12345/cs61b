@@ -30,6 +30,7 @@ public class Solver {
             sl.add(search.cur);
             search = search.pre;
         }
+        sl.add(search.cur);
     }
 
     private class serachNode implements Comparable {
