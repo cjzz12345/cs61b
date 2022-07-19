@@ -7,7 +7,7 @@ import java.util.*;
 public class Solver {
     MinPQ<serachNode> minPQ = new MinPQ<>();
     int smove;
-    Set<WorldState> sl;
+    List<WorldState> sl;
     public Solver(WorldState initial) {
         serachNode init = new serachNode(initial,0,null);
         minPQ.insert(init);
@@ -24,7 +24,7 @@ public class Solver {
             }
             search = minPQ.delMin();
         }
-        sl = new HashSet<>();
+        sl = new ArrayList<>();
         smove = search.move;
         while (search.pre != null) {
             sl.add(search.cur);
