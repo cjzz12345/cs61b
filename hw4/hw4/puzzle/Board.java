@@ -43,7 +43,7 @@ public class Board implements WorldState{
             return false;
         }
         Board o = (Board) y;
-        if (this.tiles.length == o.size())
+        if (this.tiles.length != o.size())
             return false;
         for (int i = 0;i < this.tiles.length;i++)
             for (int j = 0;j < this.tiles.length;j++) {
