@@ -21,6 +21,7 @@ public class Maze implements Observer {
     /**
      * Updates the drawing of the maze.
      */
+
     public void update(Observable o, Object arg) {
         MazeExplorer me = (MazeExplorer) o;
         StdDraw.clear();
@@ -36,7 +37,8 @@ public class Maze implements Observer {
             }
         }
 
-        StdDraw.show(DRAW_DELAY_MS);
+       StdDraw.show(DRAW_DELAY_MS);
+
     }
 
     /**

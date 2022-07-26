@@ -2,6 +2,8 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.Queue;
 
+import java.util.Stack;
+
 public class Board implements WorldState{
     private int[][] tiles;
     public Board(int[][] tiles) {
@@ -106,6 +108,7 @@ public class Board implements WorldState{
             s.append("\n");
         }
         s.append("\n");
+        Ch
         return s.toString();
     }
 
